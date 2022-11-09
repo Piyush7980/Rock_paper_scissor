@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body{
+    background: radial-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    height: 100vh;
+    padding: 50px 0;
+  }
+  .rule{
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding:10px 30px;
+    border-radius: 10px;
+  }
+  header{
+    border: 1px solid hsl(217, 16%, 45%);
+    width: 600px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-inline: auto;
+    border-radius: 10px;
+  }
+  .game-title,.score-card{
+display: flex;
+flex-direction: column;
+}
+.score-card{
+  align-items: center;
+}
+.game-title{
+  align-items: left;
+  padding: 5px 15px;
+  margin-top: -20px;
+}
+.game-title h1{
+    font-size: 40px;
+    margin-bottom: -17px;
+    font-weight: 700;
+    color: #fff;
+    height: 100%;
+  }
+.score-card{
+  justify-content: center;
+  height: 100%;
+  width: 120px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.score-card span{
+  font-size: 65px;
+  font-weight: 700;
+  color: hsl(229, 25%, 31%);
+}
+.score-card h3{
+  color:  hsl(229, 64%, 46%);
+  font-size: 16px;
+  margin-bottom: -5px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+section,.paper,.rock,.scissors{
+  background-repeat: no-repeat;
+  background-position: center;
+  height:220px;
+  width: 220px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow:inset 3px 3px 10px 5px rgba(0, 0, 0, 0.498),
+  inset -3px -3px 10px 5px rgba(185, 185, 185, 0.708);
+}
+.tri-base{
+  display: flex;
+  gap: 75px;
+}
+.home{
+  display: flex;
+}
+section{
+  cursor: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: unset;
+  height: 600px;
+  box-shadow: unset;
+  width: 600px;
+  margin-inline: auto;
+  background-color: unset;
+  background-image: url(bg-triangle.svg);
+  background-size: 400px;
+  overflow: hidden;
+}
+.game-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  
+}
+.paper{
+  border: 25px solid hsl(136, 80%, 51%);
+  background-image: url(hand.png);
+  background-size: 90px;
+}
+.rock{
+  border: 25px solid hsl(349, 71%, 52%);
+  background-image: url(fist.png);
+  background-size: 90px;
+}
+.scissors{
+  border: 25px solid hsl(39, 89%, 49%);
+  background-image: url(scissors.png);
+  background-size: 90px;
+}
+
+.result-body{
+  display: none;
+  background: none;
+  width: 100%;
+}
+
+.choosen{
+  width: 240px;
+  height: 240px;
+  border-width: 30px;
+  background-size: 70px;
+}
+.blank{
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background-color: hsl(214, 47%, 23%);
+}
+.my-choice,.c-choice{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.game-body h2{
+  color: #fff;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+.result{
+  display: none;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+}
+.result h2{
+  font-size: 50px;
+  letter-spacing: 1px;
+}
+
+button{
+  cursor: pointer;
+  padding: 12px 50px;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  background-color: #fff;
+  color: crimson;
+  font-weight: 600;
+}
+button:hover{
+  color: hsl(229, 64%, 46%);
+}
+
+.choosen{
+  position: relative;
+}
+/* adding ripple effect */
+.circles {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background-color: hsl(229, 25%, 31%);
+  z-index: -2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.circles::after {
+  content: "";
+  position: absolute;
+  z-index: -3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 140%;
+  height: 140%;
+  background-color: hsla(228, 25%, 31%, 0.652);
+
+}
+
+.circles::before {
+  content: "";
+  position: absolute;
+  z-index: -4;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 180%;
+  height: 180%;
+  background-color: hsla(228, 25%, 31%, 0.197);
+}
+.rules{
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.505);
+}
+.rulecard{
+  background-color: #fff;
+  width: 400px;
+  height: 400px;
+  margin:200px auto;
+  border-radius: 10px;
+  background-image: url(image-rules.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.505),
+  -10px -10px 40px rgba(0, 0, 0, 0.502);
+}
+
+/* adding responsiveness */
+
+@media (max-width:600px) {
+  .rulecard{
+    height: 450px;
+    width: 350px;
+    margin: 80px auto;
+  }
+  .circles{
+    height: 220px;
+    width: 220px;
+  }
+  .my-choice,.c-choice{
+    gap: 30px;
+  }
+  body{
+    padding: 20px 0;
+  }
+  
+  header{
+    width: 100%;
+    height: 120px;
+  }
+  
+  .game-title h1{
+    font-size: 30px;
+    margin-bottom: -12px;
+  }
+  
+  .score-card span{
+    font-size: 55px;
+    margin-bottom: -5px;
+  }
+  .score-card h3{
+    font-size: 14px;
+  }
+  .paper,.rock,.scissors{
+  cursor:unset;
+  background-size: 50px;
+  border-width: 20px;
+  height: 150px;
+  width: 150px;
+}
+.blank{
+  height: 150px;
+  width: 150px;
+}
+.tri-base{
+  gap: 40px;
+}
+section{
+  height: 450px;
+  width: 100%;
+  background-color: unset;
+  background-image: url(bg-triangle.svg);
+  background-size: 200px;
+}
+.rule{
+  right: 34vw;
+  bottom: 5px;
+}
+button{
+  cursor: unset;
+  padding: 17px 65px;
+  font-size: 16px;
+}
+h1{
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+}
